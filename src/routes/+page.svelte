@@ -46,8 +46,7 @@ O-----O-----O
     }
     :global(div.f) {
         border-radius: 15px;
-        background-color: rgb(172, 172, 172);
-        box-shadow: 0px 0px 1px black;
+        background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 16%, rgba(68,68,68,1) 81%, rgba(68,68,68,1) 83%, rgba(255,255,255,1) 94%, rgba(255,255,255,1) 100%);
     }
     :global(div.s) { 
         background-color: white; 
