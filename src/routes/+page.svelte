@@ -1,98 +1,61 @@
+<script>
+    const table = `
+O-----O-----O
+|.....|.....|
+|.O---O---O.|
+|.|...|...|.|
+|.|.O-O-O.|.|
+|.|.|...|.|.|
+O-O-O...O-O-O
+|.|.|...|.|.|
+|.|.O-O-O.|.|
+|.|...|...|.|
+|.O---O---O.|
+|.....|.....|
+O-----O-----O
+`
+.replaceAll('.', 's')
+.replaceAll('-', 'v')
+.replaceAll('|', 'h')
+.replaceAll('O', 'f')
+
+</script>
+
 <h1>Malom Játék</h1>
 
-<table>
-    <tbody>
-        <tr>
-            <td colspan="3" rowspan="3" class="b">
-                <div class="p"></div>
-            </td>
-            <td colspan="9"></td>
-            <td colspan="3" rowspan="3" class="b">
-                <div class="p p2"></div>
-            </td>
-            <td colspan="9"></td>
-            <td colspan="3" rowspan="3" class="b">
-                <div class="p p1"></div>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="9" class="vcs"></td>
-            <td colspan="9" class="vcs"></td>
-        </tr>
-        <tr>
-            <td colspan="9"></td>
-            <td colspan="9"></td>
-        </tr>
-        <tr>
-            <td rowspan="9"></td>
-            <td class="fcs" rowspan="9"></td>
-            <td rowspan="9"></td>
-            <td rowspan="9"></td>
-            <td colspan="3"></td>
-            <td></td>
-            <td colspan="3"></td>
-            <td></td>
-            <td></td>
-            <td class="fcsr"></td>
-            <td></td>
-            <td></td>
-            <td colspan="3"></td>
-            <td></td>
-            <td colspan="3"></td>
-            <td rowspan="9"></td>
-            <td rowspan="9"></td>
-            <td class="fcs" rowspan="9"></td>
-            <td rowspan="9"></td>
-        </tr>
-        <tr>
-            
-        </tr>
-    </tbody>
-</table>
+<div class="grid">
+    {#each table.split('\n') as row}
+        {#each row.split('') as cell}
+            <div class={cell}></div>
+        {/each}
+    {/each}
+</div>
+
 
 <style>
-    table {
+    div.grid {
         margin: auto;
-        border-collapse: separate;
-        border-spacing: 0px;
+        display: inline-grid;
+        grid-template-columns: repeat(13, 1fr);
+        grid-template-rows: repeat(13, 1fr);
+        gap: 0px;
     }
-    h1 {
-        text-align: center;
-    }
-    td.vcs {
-        height: 6px;
-        width: 100px;
-        background-color: rgb(190, 190, 190);
-        border: solid 1px rgb(149, 149, 149);
-    }
-    td.fcs {
-        height: 100px;
-        width: 6px;
-        background-color: rgb(190, 190, 190);
-        border: solid 1px rgb(149, 149, 149);
-    }
-    td.fcsr {
-        width: 6px;
-        height: 10px;
-        background-color: rgb(190, 190, 190);
-        border: solid 1px rgb(149, 149, 149);
-    }
-    td.b {
-        border-radius: 12px;
+    :global(div.grid div) {
         width: 30px;
         height: 30px;
-        background-color: rgb(190, 190, 190);
-        border: solid 1px rgb(149, 149, 149);
     }
-    div.p {
-        width: 100%;
-        height: 100%;
+    :global(div.f) {
         border-radius: 15px;
+        background-color: rgb(172, 172, 172);
+        box-shadow: 0px 0px 1px black;
     }
-    div.p1 {
-        background-color: red;
+    :global(div.s) { 
+        background-color: white; 
+    } 
+    :global(div.h) {
+        background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 38%, rgb(183, 183, 183) 42%, rgb(183, 183, 183) 58%, rgba(255,255,255,1) 62%, rgba(255,255,255,1) 100%);
     }
-    div.p2 {
-        background-color: blue;
+    :global(div.v) {
+        background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 38%, rgb(183, 183, 183) 42%, rgb(183, 183, 183) 58%, rgba(255,255,255,1) 62%, rgba(255,255,255,1) 100%);
     }
 </style>
